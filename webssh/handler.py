@@ -601,5 +601,4 @@ class WsockHandler(MixinHandler, tornado.websocket.WebSocketHandler):
             self.close_reason = 'client disconnected'
 
         worker = self.worker_ref() if self.worker_ref else None
-        if worker:
-            worker.close(reason=self.close_reason)
+

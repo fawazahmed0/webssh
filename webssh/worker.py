@@ -116,19 +116,4 @@ class Worker(object):
                 self.update_handler(IOLoop.READ)
 
     def close(self, reason=None):
-        if self.closed:
-            return
-        self.closed = True
-
-        logging.info(
-            'Closing worker {} with reason: {}'.format(self.id, reason)
-        )
-        if self.handler:
-            self.loop.remove_handler(self.fd)
-            self.handler.close(reason=reason)
-        self.chan.close()
-        self.ssh.close()
-        logging.info('Connection to {}:{} lost'.format(*self.dst_addr))
-
-        clear_worker(self, clients)
-        logging.debug(clients)
+        pass
