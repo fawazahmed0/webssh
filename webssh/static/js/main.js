@@ -549,14 +549,7 @@ jQuery(function($){
     };
 
     sock.onclose = function(e) {
-      term.dispose();
-      term = undefined;
-      sock = undefined;
-      reset_wssh();
-      log_status(e.reason, true);
-      state = DISCONNECTED;
-      default_title = 'WebSSH';
-      title_element.text = default_title;
+
     };
 
     $(window).resize(function(){
